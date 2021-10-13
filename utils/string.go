@@ -20,14 +20,15 @@ func StringSplit(list ...string) string {
 	return builder.String()
 }
 
-//生成32位md5字串
+// 生成32位md5字串
 func Md5(s string) string {
 	h := md5.New()
 	h.Write([]byte(s))
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-//首字母转大写
+// 首字母转大写
+// TODO:参考：https://www.cnblogs.com/Detector/p/9686443.html
 func Capitalize(str string) string {
 	if len(str) == 0 {
 		return ""

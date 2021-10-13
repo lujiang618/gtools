@@ -18,4 +18,5 @@ func TestCapitalize(t *testing.T) {
 	t.Log(Capitalize("asd"))
 	t.Log(Capitalize("Asd"))
 	t.Log(Capitalize("123"))
+	t.Log(Capitalize("长江长江"))
 }
