@@ -7,7 +7,6 @@ import (
 	"time"
 )
 
-// go test -timeout 30s -run ^TestNewDistributedLock$ gitlab.dxbim.com/products/dxyp-common/utils -v
 func TestNewDistributedLock(t *testing.T) {
 	var wg sync.WaitGroup
 	for i := 0; i < 2; i++ {
@@ -40,7 +39,6 @@ func TestNewDistributedLock(t *testing.T) {
 	wg.Wait()
 }
 
-//  go test -timeout 30s -run ^TestDistributedLock_Close$ gitlab.dxbim.com/products/dxyp-common/utils -v
 func TestDistributedLock_Close(t *testing.T) {
 	var endPoints = []string{"127.0.0.1:2379"}
 	lock, err := NewDistributedLock(endPoints, "test")
