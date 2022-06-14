@@ -6,6 +6,9 @@ import (
 	"path"
 )
 
+var defaultDirPerm = os.FileMode(0755)
+var defaultFilePerm = os.FileMode(0664)
+
 // 只删除子目录，不删除目录
 func CleanDir(dirPath string) error {
 	dir, err := ioutil.ReadDir(dirPath)
@@ -20,4 +23,13 @@ func CleanDir(dirPath string) error {
 	}
 
 	return nil
+}
+
+func IsDirExist(dir string) bool {
+	fi, err := os.Stat(dir)
+	if err != nil {
+		return false
+	}
+
+	return fi.IsDir()
 }
